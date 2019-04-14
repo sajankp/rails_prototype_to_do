@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20190413160944) do
 
   create_table "todos", force: :cascade do |t|
     t.string "content"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
