@@ -8,17 +8,24 @@ class TodoController < ApplicationController
   end
 
   def create
-    @todo = Book.new(todo_params)
+    @todo = Todo.new(todo_params)
 
-    if @todo.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_to :action => 'list'
+    respond_to do |format|
+      if @todo.save
+        format.js {render inline: "location.reload();" }
+      else
+        format.js {render inline: "location.reload();" }
+      end
     end
   end
 
+
+  def set_user
+      @user = User.find(params[:id])
+  end
+
   def todo_params
-     params.require(:todo).permit(:content)
+     params.permit(:content, :status)
   end
 
 
