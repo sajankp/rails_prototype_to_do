@@ -11,7 +11,7 @@ class TodoController < ApplicationController
     @todo = Book.new(todo_params)
 
     if @todo.save
-      redirect_to :action => 'list'
+      redirect_back(fallback_location: root_path)
     else
       redirect_to :action => 'list'
     end
