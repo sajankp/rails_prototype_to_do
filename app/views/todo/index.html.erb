@@ -17,6 +17,7 @@
     <% @todo.each do |todo| %>
       <tr>
         <td><%= todo.content %></td>
+        <td><%= check_box_tag :status, 1, todo.status %></td>
       </tr>
     <% end %>
 </table>
