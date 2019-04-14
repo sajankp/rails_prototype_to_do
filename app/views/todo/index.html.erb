@@ -9,15 +9,15 @@
     <%= form_with Todo: Todo.new do |form| %>
     <%= form.label :New %>
     <%= form.text_field :content, id: :content %>
-    <%= check_box_tag(:status) %>
-    <%= label_tag(:status, "Completed") %>
+    <%= check_box_tag(:completed_status) %>
+    <%= label_tag(:completed_status, "Completed") %>
     <%= form.submit "create" %>
     <% end %>
   </tr>
     <% @todo.each do |todo| %>
       <tr>
         <td><%= todo.content %></td>
-        <td><%= check_box_tag :status, 1, todo.status %></td>
+        <td><%= check_box_tag :status, 1, todo.completed_status %></td>
       </tr>
     <% end %>
 </table>

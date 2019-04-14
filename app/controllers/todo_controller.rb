@@ -25,7 +25,7 @@ class TodoController < ApplicationController
   end
 
   def todo_params
-     params.permit(:content, :status)
+     params.permit(:content, :completed_status)
   end
 
 
