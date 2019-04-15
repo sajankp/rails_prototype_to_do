@@ -21,7 +21,9 @@
       </tr>
     <% end %>
     <tr>
-      <td><%= link_to 'completed', todo_index_url(:completed_status => "t") %></td>
+      <td><%= link_to 'All', todo_index_url %>
+      <%= link_to 'Active', todo_index_url(:completed_status => "f") %>
+      <%= link_to 'Completed', todo_index_url(:completed_status => "t") %></td>
     </tr>
 </table>
 
