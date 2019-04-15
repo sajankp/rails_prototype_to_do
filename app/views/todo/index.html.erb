@@ -5,15 +5,6 @@
       <th colspan="9"></th>
     </tr>
   </thead>
-  <tr>
-    <%= form_with Todo: Todo.new do |form| %>
-    <%#= form.label :New %>
-    <%= form.text_field :content, id: :content %>
-    <%= check_box_tag(:completed_status) %>
-    <%= label_tag(:completed_status, "Completed") %>
-    <%= form.submit "create" %>
-    <% end %>
-  </tr>
     <% @todo.each do |todo| %>
       <tr>
         <td><%= todo.content %></td>
@@ -28,6 +19,13 @@
     </tr>
 </table>
 
+<%= form_with Todo: Todo.new do |form| %>
+<%#= form.label :New %>
+<%= form.text_field :content, id: :content %>
+<%= check_box_tag(:completed_status) %>
+<%= label_tag(:completed_status, "Completed") %>
+<%= form.submit "create" %>
+<% end %>
 
 
 <br>
