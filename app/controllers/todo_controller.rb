@@ -1,6 +1,10 @@
 class TodoController < ApplicationController
   def index
-    @todo = Todo.all
+    if params[:completed_status]
+      @todo = Todo.where(:completed_status=> params[:completed_status])
+    else
+      @todo = Todo.all
+    end
   end
 
   def new

@@ -20,6 +20,11 @@
         <td><%= check_box_tag :status, 1, todo.completed_status %></td>
       </tr>
     <% end %>
+    <tr>
+      <td><%= link_to 'completed', todo_index_url(:completed_status => "t") %></td>
+    </tr>
 </table>
+
+
 
 <br>
