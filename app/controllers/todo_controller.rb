@@ -23,6 +23,11 @@ class TodoController < ApplicationController
     end
   end
 
+  def destroy
+    @todo=Todo.find(params[:id])
+    @todo.destroy
+    redirect_to todo_index_url
+  end
 
   def set_user
       @user = User.find(params[:id])
