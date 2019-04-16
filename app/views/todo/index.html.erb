@@ -1,13 +1,17 @@
 
-<%= form_with url: "/todo", scope: "todo" do |form| %>
-<%= form.text_field :content, id: :content %>
-<%= form.check_box :completed_status %>
-<%= label_tag(:completed_status, "Completed") %>
-<%= form.submit "create" %>
-<% end %>
+
 
 <h3>Todo</h3>
 <ul>
+  <ul><li>
+  <%= form_with url: "/todo", scope: "todo" do |form| %>
+  <span><%= form.text_field :content, id: :content %></span>
+  <%= form.check_box :completed_status %>
+  <%= label_tag(:completed_status, "Completed") %>
+  <%= form.submit "create" %>
+  <% end %>
+  </li>
+  </ul>
     <% @todo.each do |todo| %>
       <ul class="todos">
         <li ><%= check_box_tag :status, 1, todo.completed_status %>
