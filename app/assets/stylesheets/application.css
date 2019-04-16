@@ -14,13 +14,35 @@
  *= require_self
  */
 
- li{
+
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+li {
    display: inline;
    width: 100%;
- }
-
- .todo-content{
    text-align: center;
-   width: 50%;
-   overflow: auto;
- }
+}
+
+ul li span {
+	float: left;
+	width: 35%;
+}
+
+form {
+    display: inline;
+}
