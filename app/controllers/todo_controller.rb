@@ -29,6 +29,8 @@ class TodoController < ApplicationController
     redirect_to todo_index_url
   end
 
+  private
+
   def set_user
       @user = User.find(params[:id])
   end

@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ li{
+   display: inline;
+   width: 100%;
+ }
+
+ .todo-content{
+   text-align: center;
+   width: 50%;
+   overflow: auto;
+ }
