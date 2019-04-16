@@ -15,7 +15,7 @@
         <li ><%= link_to 'X', todo_path(todo), method: :delete %></li>
         <li><%= form_with(model: todo ) do |form| %>
             <%= form.text_field :content, id: :todo_content %>
-            <%= check_box_tag("status",'1',todo.completed_status) %>
+            <%= form.check_box :completed_status %>
             <%#= label_tag(:completed_status, "Completed") %>
             <%= form.submit "Update"%>
             <% end %></li>
