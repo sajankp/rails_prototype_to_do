@@ -11,6 +11,20 @@ class TodoController < ApplicationController
    @todo = Todo.new
   end
 
+  def edit
+  end
+
+  def update
+    @todo = Todo.find params[:id]
+      respond_to do |format|
+        if @todo.update(todo_params)
+          format.html { redirect_to todo_index_url }
+        else
+          format.html { redirect_to todo_index_url }
+        end
+      end
+  end
+
   def create
     @todo = Todo.new(todo_params)
 
@@ -36,7 +50,7 @@ class TodoController < ApplicationController
   end
 
   def todo_params
-     params.permit(:content, :completed_status)
+     params.require(:todo).permit(:content, :completed_status, :id)
   end
 
 
