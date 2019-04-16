@@ -1,8 +1,7 @@
 
-<%= form_with Todo: Todo.new do |form| %>
-<%#= form.label :New %>
+<%= form_with url: "/todo", scope: "todo" do |form| %>
 <%= form.text_field :content, id: :content %>
-<%= check_box_tag(:completed_status) %>
+<%= form.check_box :completed_status %>
 <%= label_tag(:completed_status, "Completed") %>
 <%= form.submit "create" %>
 <% end %>
