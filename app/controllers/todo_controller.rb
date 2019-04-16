@@ -18,9 +18,9 @@ class TodoController < ApplicationController
     @todo = Todo.find params[:id]
       respond_to do |format|
         if @todo.update(todo_params)
-          format.html { redirect_to todo_index_url }
+          format.js {render inline: "location.reload();" }
         else
-          format.html { redirect_to todo_index_url }
+          format.js {render inline: "location.reload();" }
         end
       end
   end

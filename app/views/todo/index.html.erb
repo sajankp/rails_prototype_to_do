@@ -15,8 +15,8 @@
     <% @todo.each do |todo| %>
       <ul class="todos">
         <li ><%= link_to 'X', todo_path(todo), method: :delete %></li>
-        <li><%= form_with model: todo, id: "edit_form", class: "custom class" do |form| %>
-            <%= form.text_field :content, id:  :todo_content %>
+        <li><%= form_with model: todo, id: "edit_form", class: "custom_class_"+todo.id.to_s do |form| %>
+            <%= form.text_field :content, id:  :todo_content, ondblclick: 'make_editable('+todo.id.to_s+')' %>
             <%= form.check_box :completed_status %>
             <%= form.submit "Update"%>
             <% end %></li>
