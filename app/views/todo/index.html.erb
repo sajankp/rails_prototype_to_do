@@ -14,8 +14,6 @@
   </ul>
     <% @todo.each do |todo| %>
       <ul class="todos">
-        <li ><%= check_box_tag :status, 1, todo.completed_status %>
-        <span><%= todo.content %></span></li>
         <li ><%= link_to 'X', todo_path(todo), method: :delete %></li>
         <li><%= form_with(model: todo ) do |form| %>
             <%= form.text_field :content, id: :todo_content %>
