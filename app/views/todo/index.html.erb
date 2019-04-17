@@ -1,23 +1,24 @@
 
 
 
-<h3>Todo</h3>
+<h1>todos</h1>
 <ul>
   <li>
     <%= form_with url: "/todo", scope: "todo" do |form| %>
-    <%= form.text_field :content, id: :content %>
     <%= form.check_box :completed_status %>
+    <%= form.text_field :content, id: :content %>
     <%= form.submit "create" %>
-    <% end %>
+    <% end %><span>'    '</span>
   </li>
 
   <% @todo.reverse.each do |todo| %>
 
     <li class="todos">
-      <%= link_to 'X', todo_path(todo), method: :delete %>
+
       <%= form_with model: todo, id: "edit_form", class: "custom_class_"+todo.id.to_s do |form| %>
-      <%= form.text_field :content, id:  :todo_content, ondblclick: 'make_editable('+todo.id.to_s+')' %>
       <%= form.check_box :completed_status %>
+      <%= form.text_field :content, id:  :todo_content, ondblclick: 'make_editable('+todo.id.to_s+')' %>
+      <%= link_to '×', todo_path(todo), method: :delete %>
       <%= form.submit "Update"%>
       <% end %>
     </li>
