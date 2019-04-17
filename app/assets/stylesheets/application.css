@@ -33,16 +33,15 @@ textarea {
 }
 
 li {
-   display: inline;
+
    width: 100%;
    text-align: center;
 }
 
-ul li span {
-	float: left;
-	width: 35%;
-}
-
 form {
     display: inline;
+}
+
+input[type=submit] {
+ display: none;
 }
