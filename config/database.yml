@@ -44,4 +44,4 @@ production:
   <<: *default
   database: todo_production
   username: todo
-  password: <%= ENV['SUPER-AWESOME-API_DATABASE_PASSWORD'] %>
+  password: <%= ENV['TODO_DATABASE_PASSWORD'] %>
