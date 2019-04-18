@@ -2,8 +2,8 @@
 
 one:
   content: MyString
-  status: false
+  completed_status: false
 
 two:
   content: MyString
-  status: false
+  completed_status: false
