@@ -27,13 +27,13 @@
 
 
 <ul class="menu">
-  <li>
-    <%= link_to 'All', todo_index_url %>
-    <%= link_to 'Active', todo_index_url(:completed_status => "f") %>
-    <%= link_to 'Completed', todo_index_url(:completed_status => "t") %>
-    <% if @todo.where(completed_status: true).count > 0 %>
-      <%= link_to 'Clear all completed', delete_all_completed_path, method: :delete %>
-    <% else %>
-    <% end %>
-    </li>
+    <li><%= a = @todo.where(completed_status:true).count %> <%= a == 1 ? "item" : "items" %> left </li>
+    <li><%= link_to 'All', todo_index_url %></li>
+    <li><%= link_to 'Active', todo_index_url(:completed_status => "f") %></li>
+    <li><%= link_to 'Completed', todo_index_url(:completed_status => "t") %></li>
+  <% if @todo.where(completed_status: true).count > 0 %>
+    <li><%= link_to 'Clear all completed', delete_all_completed_path, method: :delete %></li>
+  <% else %>
+  <% end %>
+
 </ul>

@@ -30,11 +30,20 @@ li {
    text-align: center;
    list-style-type: none;
 }
-li span{
-  color: white
-}
+
 form {
     display: inline;
+}
+
+.menu {
+  padding-left: 38%
+}
+
+.menu li{
+  position: relative;
+  display: inline;
+  align: center;
+  font-size: 14px;
 }
 
 input[type=submit] {
