@@ -7,11 +7,9 @@ class TodoController < ApplicationController
     end
   end
 
-  def new
-   @todo = Todo.new
-  end
-
-  def edit
+  def mark_all_completed
+    @todo = Todo.where(completed_status:false).update_all(completed_status:true)
+    redirect_back fallback_location: todo_index_url
   end
 
   def delete_all_completed

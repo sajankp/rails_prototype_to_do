@@ -4,6 +4,7 @@
 <h1>todos</h1>
 <ul>
   <li>
+    <%= link_to '❯', mark_all_completed_path, method: :post %>
     <%= form_with url: "/todo", scope: "todo", id: "new_form" do |form| %>
     <%= form.text_field :content, id: "new_content" %>
     <%= form.submit "create" %>
