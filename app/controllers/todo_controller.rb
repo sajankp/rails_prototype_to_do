@@ -1,9 +1,9 @@
 class TodoController < ApplicationController
   def index
     if params[:completed_status]
-      @todo = Todo.where(:completed_status=> params[:completed_status])
+      @todo = Todo.order(:created_at).where(:completed_status=> params[:completed_status])
     else
-      @todo = Todo.all
+      @todo = Todo.order(:created_at)
     end
   end
 
@@ -14,15 +14,19 @@ class TodoController < ApplicationController
   def edit
   end
 
+  def delete_all_completed
+    @todo = Todo.where(completed_status:true).destroy_all
+    redirect_to todo_index_url
+  end
+
+
   def update
     @todo = Todo.find params[:id]
       respond_to do |format|
         if @todo.update(todo_params)
-          format.js {render inline: "location.reload();" }
-          format.html {redirect_to todo_index_url}
+          format.html {redirect_back fallback_location: todo_index_url}
         else
-          format.js {render inline: "location.reload();" }
-          format.html {redirect_to todo_index_url}
+          format.html {redirect_back fallback_location: todo_index_url}
         end
       end
   end
@@ -32,9 +36,9 @@ class TodoController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.js {render inline: "location.reload();" }
+        format.html {redirect_to todo_index_url}
       else
-        format.js {render inline: "location.reload();" }
+        format.html {redirect_to todo_index_url}
       end
     end
   end

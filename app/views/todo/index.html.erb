@@ -4,11 +4,10 @@
 <h1>todos</h1>
 <ul>
   <li>
-    <%= form_with url: "/todo", scope: "todo" do |form| %>
-    <%= form.check_box :completed_status %>
-    <%= form.text_field :content, id: :content %>
+    <%= form_with url: "/todo", scope: "todo", id: "new_form" do |form| %>
+    <%= form.text_field :content, id: "new_content" %>
     <%= form.submit "create" %>
-    <% end %><span>'    '</span>
+    <% end %>
   </li>
 
   <% @todo.reverse.each do |todo| %>
@@ -27,7 +26,13 @@
 
 
 <ul class="menu">
-  <li><%= link_to 'All', todo_index_url %>
+  <li>
+    <%= link_to 'All', todo_index_url %>
     <%= link_to 'Active', todo_index_url(:completed_status => "f") %>
-    <%= link_to 'Completed', todo_index_url(:completed_status => "t") %></li>
+    <%= link_to 'Completed', todo_index_url(:completed_status => "t") %>
+    <% if @todo.where(completed_status: true).count > 0 %>
+      <%= link_to 'Clear all completed', delete_all_completed_path, method: :delete %>
+    <% else %>
+    <% end %>
+    </li>
 </ul>
